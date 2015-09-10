@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/">
+        <file>../../../../Imagens/Ícones/KI_Xbox_Logo_V3.png</file>
+    </qresource>
+</RCC>
