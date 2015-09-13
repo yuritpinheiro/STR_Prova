@@ -1,9 +1,14 @@
 #include "clone_das_sombras.h"
 #include "ui_clone_das_sombras.h"
+
 #include <unistd.h>
 #include <signal.h>
-#include <pthread.h>
-#include<QThread>
+#include <sys/types.h>
+#include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
+
+#include <QTimer>
 
 Clone_das_Sombras::Clone_das_Sombras(QWidget *parent) :
     QMainWindow(parent),
@@ -14,15 +19,12 @@ Clone_das_Sombras::Clone_das_Sombras(QWidget *parent) :
     pidPai = getppid();
     pid = getpid();
 
-    pthread_attr_t *atributo;
-    pthread_attr_init(atributo);
+    ui->labelPai->setText(QString("PID Pai: %1").arg(getppid()));
+    ui->labelPid->setText(QString("PID: %1").arg(getpid()));
 
-    pthread_t *atualizar;
-
-
-    pthread_create(atualizar, atributo, atualizarPIDS, NULL);
-
-    //atualizarPIDS();
+    QTimer *t = new QTimer(this);
+    connect(t, SIGNAL(timeout()), this, SLOT(atualizar_pid()));
+    t->start(1000);
 }
 
 Clone_das_Sombras::~Clone_das_Sombras()
@@ -32,8 +34,8 @@ Clone_das_Sombras::~Clone_das_Sombras()
 
 void Clone_das_Sombras::on_buttonClonar_clicked()
 {
-    fork();
-//    atualizarPIDS();
+    pogama = new QProcess(this);
+    pogama->start("./Clone_das_sombras");
 }
 
 void Clone_das_Sombras::on_buttonMorrer_clicked()
@@ -41,14 +43,8 @@ void Clone_das_Sombras::on_buttonMorrer_clicked()
     kill(getpid(), SIGKILL);
 }
 
-void *Clone_das_Sombras::atualizarPIDS(void *param){
-
-    while(1){
-        ui->labelPai->setText(QString("PID (Pai): %1").arg((int) pidPai));
-        ui->labelPid->setText(QString("PID: %1").arg((int) pid));
-
-        sleep(1);
-    }
+void Clone_das_Sombras::atualizar_pid()
+{
+    ui->labelPai->setText(QString("PID Pai: %1").arg(getppid()));
+    ui->labelPid->setText(QString("PID: %1").arg(getpid()));
 }
-
-

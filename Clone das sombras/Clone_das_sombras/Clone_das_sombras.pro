@@ -18,6 +18,3 @@ SOURCES += main.cpp\
 HEADERS  += clone_das_sombras.h
 
 FORMS    += clone_das_sombras.ui
-
-QMAKE_CXXFLAGS += -std=c++0x -pthread
-LIBS += -pthread

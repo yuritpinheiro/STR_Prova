@@ -2,6 +2,7 @@
 #define CLONE_DAS_SOMBRAS_H
 
 #include <QMainWindow>
+#include <QProcess>
 
 namespace Ui {
 class Clone_das_Sombras;
@@ -20,11 +21,13 @@ private slots:
 
     void on_buttonMorrer_clicked();
 
+    void atualizar_pid();
+
 private:
     Ui::Clone_das_Sombras *ui;
-    void *atualizarPIDS(void *param);
     pid_t pidPai;
     pid_t pid;
+    QProcess *pogama;
 };
 
 #endif // CLONE_DAS_SOMBRAS_H
