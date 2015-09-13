@@ -68,7 +68,10 @@ Sauron::Sauron(QWidget *parent) :
     connect(t, SIGNAL(timeout()), this, SLOT(atualizar_cpu_sched()));
     t->start(1000);
 
-
+    ui->pbar1->setValue(0);
+    ui->pbar2->setValue(0);
+    ui->pbar3->setValue(0);
+    ui->pbar4->setValue(0);
 
 }
 
@@ -102,7 +105,7 @@ void Sauron::atualizar_cpu_sched(){
         total_tempo[0] = a + b + c + d + e + f + g + i + j;
         work_tempo[0] = a + b + c;
 
-        ui->pbar1->setValue((work_tempo[0] - work_passado[0])/(total_tempo[0] - total_passado[0])*100);
+        ui->pbar1->setValue(((float)(work_tempo[0] - work_passado[0])/(total_tempo[0] - total_passado[0]))*100);
         work_passado[0] = work_tempo[0];
         total_passado[0] = total_tempo[0];
 
@@ -112,11 +115,13 @@ void Sauron::atualizar_cpu_sched(){
         line = in.readLine();
 
 
-        str >> cpuname >> a >> b >> c >> d >> e >> f >> g >> h >> i >>j;
+        QTextStream str1(&line);
+
+        str1 >> cpuname >> a >> b >> c >> d >> e >> f >> g >> h >> i >> j;
         total_tempo[1] = a + b + c + d + e + f + g + i + j;
         work_tempo[1] = a + b + c;
 
-        ui->pbar2->setValue((work_tempo[1] - work_passado[1])/(total_tempo[1] - total_passado[1])*100);
+        ui->pbar2->setValue((float)(work_tempo[1] - work_passado[1])/(total_tempo[1] - total_passado[1])*100);
         work_passado[1] = work_tempo[1];
         total_passado[1] = total_tempo[1];
 
@@ -126,11 +131,12 @@ void Sauron::atualizar_cpu_sched(){
 
          line = in.readLine();
 
-         str >> cpuname >> a >> b >> c >> d >> e >> f >> g >> h >> i >>j;
+         QTextStream str2(&line);
+         str2 >> cpuname >> a >> b >> c >> d >> e >> f >> g >> h >> i >>j;
          total_tempo[2] = a + b + c + d + e + f + g + i + j;
          work_tempo[2] = a + b + c;
 
-         ui->pbar3->setValue((work_tempo[2] - work_passado[2])/(total_tempo[2] - total_passado[2])*100);
+         ui->pbar3->setValue((float)(work_tempo[2] - work_passado[2])/(total_tempo[2] - total_passado[2])*100);
          work_passado[2] = work_tempo[2];
          total_passado[2] = total_tempo[2];
 
@@ -139,11 +145,13 @@ void Sauron::atualizar_cpu_sched(){
 
           line = in.readLine();
 
-          str >> cpuname >> a >> b >> c >> d >> e >> f >> g >> h >> i >>j;
+          QTextStream str3(&line);
+
+          str3 >> cpuname >> a >> b >> c >> d >> e >> f >> g >> h >> i >>j;
           total_tempo[3] = a + b + c + d + e + f + g + i + j;
           work_tempo[3] = a + b + c;
 
-          ui->pbar4->setValue((work_tempo[3] - work_passado[3])/(total_tempo[3] - total_passado[3])*100);
+          ui->pbar4->setValue((float)(work_tempo[3] - work_passado[3])/(total_tempo[3] - total_passado[3])*100);
           work_passado[3] = work_tempo[3];
           total_passado[3] = total_tempo[3];
 
