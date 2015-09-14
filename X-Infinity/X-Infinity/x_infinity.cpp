@@ -5,7 +5,6 @@
 #include "QDirIterator"
 #include "QFile"
 #include <iostream>
-#include<QDebug>
 #include <QDoubleValidator>
 
 
@@ -45,7 +44,6 @@ void X_Infinity::atualizarProcessos(){
     processos = proc.entryList(QDir::Dirs, QDir::Unsorted);
 
     int i = processos.indexOf("1");
-    int inicio = i;
     int iFiltro = 0;
     ui->tableWidget->setRowCount(0);
     ui->tableWidget->setRowCount(processos.length() - i);
@@ -74,8 +72,6 @@ void X_Infinity::atualizarProcessos(){
         QTextStream str2(&line);
 
         str2 >> pid >> pid;
-
-        qDebug() << pid << nome << status;
 
         QTableWidgetItem *item = new QTableWidgetItem(pid);
 

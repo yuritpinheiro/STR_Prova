@@ -18,5 +18,3 @@ SOURCES += main.cpp\
 HEADERS  += x_infinity.h
 
 FORMS    += x_infinity.ui
-
-CONFIG += console

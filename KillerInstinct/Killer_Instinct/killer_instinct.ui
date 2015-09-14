@@ -15,7 +15,7 @@
   </property>
   <property name="windowIcon">
    <iconset resource="imagens.qrc">
-    <normaloff>:/Imagens/Ícones/KI_Xbox_Logo_V3.png</normaloff>:/Imagens/Ícones/KI_Xbox_Logo_V3.png</iconset>
+    <normaloff>:/imagens/KI_Xbox_Logo_V3.png</normaloff>:/imagens/KI_Xbox_Logo_V3.png</iconset>
   </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="QWidget" name="layoutWidget">
