@@ -21,9 +21,12 @@ private slots:
     void atualizarProcessos();
 
 
+    void on_btnFiltro_clicked();
+
 private:
     Ui::X_Infinity *ui;
     QTimer *intervalo;
+    QString filtro;
 };
 
 #endif // X_INFINITY_H
