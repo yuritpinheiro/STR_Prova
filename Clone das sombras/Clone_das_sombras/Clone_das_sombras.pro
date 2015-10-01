@@ -18,3 +18,6 @@ SOURCES += main.cpp\
 HEADERS  += clone_das_sombras.h
 
 FORMS    += clone_das_sombras.ui
+
+RESOURCES += \
+    resource.qrc

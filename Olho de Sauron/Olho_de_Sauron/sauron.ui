@@ -14,8 +14,8 @@
    <string>Sauron</string>
   </property>
   <property name="windowIcon">
-   <iconset>
-    <normaloff>../../../../Imagens/Ícones/originais/eye_sauron_abstract_art_desktop_1024x768_hd-wallpaper-181447.jpg</normaloff>../../../../Imagens/Ícones/originais/eye_sauron_abstract_art_desktop_1024x768_hd-wallpaper-181447.jpg</iconset>
+   <iconset resource="resources.qrc">
+    <normaloff>:/sauron.png</normaloff>:/sauron.png</iconset>
   </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="QWidget" name="layoutWidget">
@@ -89,6 +89,8 @@
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources/>
+ <resources>
+  <include location="resources.qrc"/>
+ </resources>
  <connections/>
 </ui>

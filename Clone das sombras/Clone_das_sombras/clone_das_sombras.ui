@@ -13,14 +13,18 @@
   <property name="windowTitle">
    <string>Clone_das_Sombras</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="resource.qrc">
+    <normaloff>:/naruto.png</normaloff>:/naruto.png</iconset>
+  </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>32</x>
       <y>20</y>
       <width>260</width>
-      <height>62</height>
+      <height>70</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout">
@@ -69,6 +73,8 @@
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources/>
+ <resources>
+  <include location="resource.qrc"/>
+ </resources>
  <connections/>
 </ui>

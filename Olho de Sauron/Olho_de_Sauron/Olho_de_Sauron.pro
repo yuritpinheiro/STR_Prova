@@ -19,3 +19,6 @@ SOURCES += main.cpp\
 HEADERS  += sauron.h
 
 FORMS    += sauron.ui
+
+RESOURCES += \
+    resources.qrc

@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/">
+        <file>naruto.png</file>
+    </qresource>
+</RCC>
